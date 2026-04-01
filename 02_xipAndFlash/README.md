@@ -45,7 +45,7 @@ The discussion of `BAUDR`'s value is provided in [Section 4.10.4 of RP2040 Datas
 
 Let's look at different bits of `CTRLR0` and figure out what should go in each,
 - `DFS` - In [Section 4.10.6 of RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=576) that the `DFS` (`CTRLR0[3:0]`) is invalid and writing to it has no effect. So, it is left unchanged. 
-- `FRF` - On [pg. 593 of RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=593) it is mentioned that `CTRLR0.SPI_FRF` is only applicable if `FRF` is programmed to `0b00`. So, it is left unchanged.
+- `FRF` - On [pg. 589 of RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=589) it is mentioned that `CTRLR0.SPI_FRF` is only applicable if `FRF` is programmed to `0b00`. So, it is left unchanged.
 - `SCPH` and `SCPOL` - These two bits specify the SPI mode. As mentioned previously, the discussion here assumes mode 0. Thus, both the bits are left unchanged. Further discussion on this is available in [Section 4.10.10.1 of RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=584).
 - `TMOD` - These bits are set to `0x3`, EEPROM read mode (TX then RX; RX starts after control data TX'd), since for every transaction a command (instruction + address) is transmitted and the data is received right after.
 - `SLV_OE` - Left unchanged since the &micro;C is supposed to act as a master in this case.
